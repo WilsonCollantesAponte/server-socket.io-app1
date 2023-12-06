@@ -1,14 +1,5 @@
-import { Server } from "socket.io";
+const server = require("./src");
 
-const io = new Server({
-  cors: {
-    origin: "*",
-  },
+server.listen(3001, () => {
+  console.log("server running at http://localhost:3001");
 });
-
-io.on("connection", (socket) => {
-  console.log(socket.data);
-  socket.emit("hello", "word");
-});
-
-io.listen(3001);
